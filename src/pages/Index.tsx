@@ -11,6 +11,12 @@ import img4 from "../Assets/Area/image4.png";
 import img5 from "../Assets/Area/image5.png";
 import Hero from "../Assets/Hero/heroimg.png";
 
+import sellImg from "../Assets/Area/Sellyourhome.png";
+import rentImg from "../Assets/Area/Rentyourhome.png";
+import buyImg from "../Assets/Area/buyhome.png";
+import marketingImg from "../Assets/Area/freemarketing.png";
+
+
 export default function Index() {
   const [searchType, setSearchType] = useState<"rent" | "buy">("rent");
 
@@ -18,16 +24,37 @@ export default function Index() {
     { id: 1, location: "Washington", listings: 29, image: img1, featured: false },
     { id: 2, location: "Franklin", listings: 26, image: img2, featured: false },
     { id: 3, location: "Clinton", listings: 25, image: img3, featured: false },
-    { id: 4, location: "Arlington", listings: 25, image: img4, featured: true },
+    { id: 4, location: "Arlington", listings: 25, image: Hero, featured: true },
     { id: 5, location: "Centerville", listings: 23, image: img5, featured: false },
   ];
 
   const services = [
-    { title: "Sell your home", icon: "💰", description: "We do a free evaluation to be sure you want to start selling" },
-    { title: "Rent your home", icon: "🔑", description: "We do a free evaluation to be sure you want to start renting" },
-    { title: "Buy a home", icon: "🏘️", description: "We do a free evaluation to be sure you want to start buying" },
-    { title: "Free marketing", icon: "📢", description: "We do a free evaluation to be sure you want to start marketing" },
-  ];
+  {
+    title: "Sell your home",
+    image: sellImg,
+    description:
+      "We do a free evaluation to be sure you want to start selling",
+  },
+  {
+    title: "Rent your home",
+    image: rentImg,
+    description:
+      "We do a free evaluation to be sure you want to start renting",
+  },
+  {
+    title: "Buy a home",
+    image: buyImg,
+    description:
+      "We do a free evaluation to be sure you want to start buying",
+  },
+  {
+    title: "Free marketing",
+    image: marketingImg,
+    description:
+      "We do a free evaluation to be sure you want to start marketing",
+  },
+];
+
 
   return (
     <div className="min-h-screen bg-white relative">
@@ -100,7 +127,7 @@ export default function Index() {
       </section>
 
       {/* Properties by Area Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto mt-20">
+      <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto mt-20 items-center">
         <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Properties by Area</h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
@@ -109,7 +136,7 @@ export default function Index() {
         </div>
 
         {/* Centered Properties Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 auto-rows-[250px] justify-center justify-items-center">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 auto-rows-[250px] justify-center justify-items-center">
           {properties.map((property) => (
             <div
               key={property.id}
@@ -127,19 +154,20 @@ export default function Index() {
         </div>
       </section>
 
-      {/* Services Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
-        <div className="max-w-7xl mx-auto text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Our Services</h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">We provide a wide range of real estate services to help you buy, sell, or rent your home with ease.</p>
-        </div>
+     <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50 -mt-40">
+  <div className="max-w-7xl mx-auto text-center mb-12">
+    <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Our Services</h2>
+    <p className="text-gray-600 max-w-2xl mx-auto">
+      We provide a wide range of real estate services to help you buy, sell, or rent your home with ease.
+    </p>
+  </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {services.map((service, index) => (
-            <ServiceCard key={index} {...service} />
-          ))}
-        </div>
-      </section>
+  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+    {services.map((service, index) => (
+      <ServiceCard key={index} {...service} />
+    ))}
+  </div>
+</section>
 
       {/* Footer */}
       <footer className="bg-gray-900 text-gray-400 py-12 px-4 sm:px-6 lg:px-8">

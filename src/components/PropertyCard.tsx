@@ -1,11 +1,3 @@
-interface PropertyCardProps {
-  location: string;
-  listings: number;
-  image: string;
-  featured?: boolean;
-  variant?: "small" | "large";
-}
-
 export default function PropertyCard({
   location,
   listings,
@@ -18,22 +10,18 @@ export default function PropertyCard({
   return (
     <div
       className={`relative rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow cursor-pointer group ${
-        isLarge ? "col-span-2 row-span-2" : ""
+        isLarge ? "lg:col-span-2 lg:row-span-2" : ""
       }`}
     >
       <img
         src={image}
         alt={location}
-        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-        style={{ minHeight: isLarge ? "400px" : "250px" }}
+        className={`${isLarge ? " w-[900px]" : " w-full"} h-[250px] object-cover group-hover:scale-105 transition-transform duration-300`}
       />
 
-      {/* Overlay */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent flex flex-col justify-between p-4">
-        {/* Header info */}
         <div />
 
-        {/* Bottom info */}
         <div className="flex justify-between items-end">
           <div>
             <h3 className="text-white font-bold text-lg">{location}</h3>
